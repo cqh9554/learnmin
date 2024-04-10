@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<navigation-bar title="宽带新装" back="{{false}}" color="black" background="#5716"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    你好{{name}}-{{sum}}
+    <button bind:tap="ff">+</button>
+    <button open-type='getUserInfo' 
+    bindgetuserinfo="getu"
+    bind:tap="getu">send</button>
+    
+
+
+
+  </view>
+</scroll-view>
