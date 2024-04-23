@@ -1,0 +1,18 @@
+<!--components/top-tabar/top-tabar.wxml-->
+<view>top-tabar被使用</view>
+<view>shu:{{shu}} </view>
+<view>start</view>
+<slot/>
+<view>slot1<slot name="slot1"/></view>
+<view>end</view>
+<view class="outer" style="display: flex;">
+  <block wx:for="{{list}}" wx:key="index">
+  <view class="item {{morenindex===index?'active':''}}" data-index="{{index}}" bind:tap="changecolor">
+  <text>{{item}}{{index}}</text>
+  <view hidden="{{morenindex===index?false:true}}">
+  这是{{item}}分区
+  </view>
+  </view>
+  
+</block>
+</view>

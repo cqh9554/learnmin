@@ -1,0 +1,10 @@
+
+  var message='wxs 调用成功'
+
+  function sum(a,b){
+    return a+b
+  }
+  module.exports={
+    message:message,
+    sum:sum
+  }

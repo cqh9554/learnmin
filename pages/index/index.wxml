@@ -1,15 +1,65 @@
 <!--index.wxml-->
-<navigation-bar title="宽带新装" back="{{false}}" color="black" background="#5716"></navigation-bar>
+<navigation-bar title="学习微信小程序" back="{{false}}" color="black" background="#5716"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
-    你好{{name}}-{{sum}}
+    你好{{name}}-{{sum}}-{{nowtime}}-{{sum}}
     <button bind:tap="ff">+</button>
     <button open-type='getUserInfo' 
     bindgetuserinfo="getu"
     bind:tap="getu">send</button>
-    
+    <!-- <map longitude="116" latitude="39.6"/> -->
+    <wxs module="info">
+      var a = 'asd'
+      module.exports={
+        a:a
+      }
+    </wxs>
+  <view>{{info.a}}</view>
 
-
-
+    <!-- 只能用相对路径导入wxs（微信 wx script）wxs类似js的语法但是因为在wxml中不能直接用var a = 'asd',所以得用wxs -->
+  <wxs src="../../wxs/first.wxs" module="first"/>
+    <view>{{first.message}}</view>
+    <view>{{first.sum(7,5)}}</view>
   </view>
+  <block wx:for="{{['diyi','dier','disan']}}"  data-item="{{item}}" wx:key="index">
+  <!-- data-item:传递数据，在event中， -->
+    <view bindtap="dj" data-item="{{item}}">{{item}}</view>
+  </block>
+  <view>---------------+----------------</view>
+
+  <!-- 事件冒泡和事件捕获  这个我好像学过在js-->
+  <!-- 监听组件中抛出的djadd1事件，方法取名为cpnadd1, -->
+  <first-cpn text="niaho" bind:djadd1="cpnadd1"/>
+  <!-- 组件之间的通信 -->
+  {{count}}
+<view>=--------------------------</view>
+<view>
+  <top-tabar list="{{['衣服','鞋子','裤子']}}"/>
+</view>
+<view>-------------------------</view>
+<view>
+<!-- 页面中的按钮控制组件中的数据 
+步骤：
+（1）给组件设置id 或者 class
+（2）绑定监听（方法）
+（3）在方法中找到要改变数据的组件
+（4）找到组件 使用id找到这个组件 代码（const cpn = this.selectComponent('#cpn1')）
+（5）cpn.data就是这个组件中的所有数据
+（6）修改组件中的数据并改变展示页面上的数据 代码（cpn.setData({shu:cpn.data.shu+1})）
+ -->
+  <top-tabar id="cpn1"/>
+  <button bind:tap="shuadd1">shu+1</button>
+</view>
+
+<view>
+<!-- 插槽slot  
+  多插槽：<slot name='slot1'/>
+  用的时候: <button slot= 'slot1'>中间</button>
+  在组件中的cpn.js中Component中option:{multipleSlot:true}
+-->
+  <top-tabar>
+  <button>中间</button>
+  <button slot="slot1">站在slot1的位置</button>
+  </top-tabar>
+</view>
 </scroll-view>

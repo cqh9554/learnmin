@@ -1,0 +1,5 @@
+/* components/first-cpn/first-cpn.wxss */
+.title{
+  font-size: large;
+  color: aqua;
+}

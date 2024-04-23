@@ -1,0 +1,5 @@
+<!--components/first-cpn/first-cpn.wxml-->
+<view class="title">标题</view>
+<view class="inner">内容:{{text}}</view>
+<!-- 组件中的按钮控制页面中的信息，组件中的按钮绑定点击事件， -->
+<button bind:tap="dj">dj</button>

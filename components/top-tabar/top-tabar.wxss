@@ -1,0 +1,19 @@
+/* components/top-tabar/top-tabar.wxss */
+.outer{
+  display: flex;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.item{
+  flex:1;
+  text-align: center;
+}
+.active{
+  color: red;
+  
+}
+.active text{
+  padding: 20rpx 10rpx;
+  border-bottom: red solid 6rpx;
+  border-top: springgreen solid 6rpx;
+}

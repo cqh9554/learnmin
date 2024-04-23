@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "navigation-bar": "/components/navigation-bar/navigation-bar"
+    "navigation-bar": "/components/navigation-bar/navigation-bar",
+    "first-cpn":"/components/first-cpn/first-cpn",
+    "top-tabar":"/components/top-tabar/top-tabar"
+    
   }
 }
